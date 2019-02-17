@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { hot } from 'react-hot-loader';
 import io from 'socket.io-client';
 
-import styles from './styles.css';
+import styles from './App.css';
 
 import MessageForm from './MessageForm';
 import MessageList from './MessageList';
@@ -27,7 +27,7 @@ class App extends Component {
         socket.on('update', ({users}) => this.chatUpdate(users));
     }
 
-    messageReceive() {
+    messageReceive(message) {
         const messages = [message, ...this.state.messages];
         this.setState({messages});
     }
